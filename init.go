@@ -12,8 +12,8 @@ type service struct {
 
 type Options configs.Options
 
-func Init(options configs.Options) service {
-	env.Options = options
+func Init(options interface{}) service {
+	env.Options = options.(configs.Options)
 	oneIDService := services.NewOneIDService()
 	serviceResponse := service{
 		OneID: oneIDService,
