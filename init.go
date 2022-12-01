@@ -10,9 +10,7 @@ type service struct {
 	OneID *services.OneIDService
 }
 
-type Options struct {
-	configs.Options
-}
+type Options configs.Options
 
 func Init(options configs.Options) service {
 	env.Options = options
