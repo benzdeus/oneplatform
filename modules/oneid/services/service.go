@@ -5,12 +5,12 @@ import (
 	"github.com/benzdeus/oneplatform/env"
 )
 
-type oneIDService struct {
+type OneIDService struct {
 	options configs.Options
 }
 
-func NewOneIDService() *oneIDService {
-	return &oneIDService{
+func NewOneIDService() *OneIDService {
+	return &OneIDService{
 		options: env.Options,
 	}
 }

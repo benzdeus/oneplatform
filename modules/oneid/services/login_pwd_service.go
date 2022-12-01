@@ -8,7 +8,7 @@ import (
 	"github.com/benzdeus/oneplatform/helper"
 )
 
-func (service *oneIDService) LoginPWD(username, password string) entities.ResponseOneIDLoginPWD {
+func (service *OneIDService) LoginPWD(username, password string) entities.ResponseOneIDLoginPWD {
 
 	response := entities.ResponseOneIDLoginPWD{}
 	rquestBody := map[string]interface{}{
