@@ -8,7 +8,7 @@ import (
 	"github.com/benzdeus/oneplatform/modules/oneid/services"
 )
 
-func TestLoginPWDServiceSuccess(t *testing.T) {
+func TestLoginPWDService(t *testing.T) {
 	env.Options = configs.Options{
 		ClientID:     0,
 		ClientSecret: "xxx",
