@@ -17,7 +17,7 @@ type Options configs.Options
 type OneChatRequestElementSendComponent one_entities.OneChatRequestElementSendComponent
 type Choice one_entities.OneChatChoice
 
-func InitOneID(options Options) service {
+func Init(options Options) service {
 	env.Options = configs.Options(options)
 	oneIDService := _oneIDService.NewOneIDService()
 	oneChatService := _oneChatService.NewOneChatService()
