@@ -1,13 +1,13 @@
-package entities
+package one_entities
 
 type OneIDService interface {
 	// Register()
-	LoginPWD(username, password string) interface{}
+	LoginPWD(username, password string) ResponseOneIDLoginPWD
 	// LoginSharedToken()
 	// GetSharedToken()
 	// RefreshToken()
 	// LoginOauthWithSharedToken()
-	GetAccountData()
+	GetAccountData(accessToken string) ResponseOneIDGetAccountData
 }
 
 type ResponseOneIDLoginPWD struct {

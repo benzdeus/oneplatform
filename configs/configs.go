@@ -6,4 +6,5 @@ type Options struct {
 	ClientSecret     string
 	UsernameForAdmin string
 	PasswordForAdmin string
+	OneChatAPIKey    string
 }
