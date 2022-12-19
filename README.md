@@ -38,3 +38,36 @@ log.Printf("%+v", resPersonData.FirstNameTh)
 ```
 
 ### One Chat
+
+```go
+botID := "xxxxx"
+oneID := "xxx"
+
+choices := []one_entities.OneChatChoice{
+    {
+        Sign:  "true",
+        Url:   "https://google.co.th?t=",
+        Size:  "full",
+        Type:  "link",
+        Label: "ตกลง",
+    },
+    {
+        Sign:  "true",
+        Url:   "https://google.co.th?t=",
+        Size:  "full",
+        Type:  "link",
+        Label: "ไม่ตกลง",
+    },
+}
+
+template := []one_entities.OneChatRequestElementSendComponent{
+    {
+        Image:  "https://animatebkk-online.com/wp-content/uploads/2022/07/4580590170247-3.jpg",
+        Title:  "หัวข้อ Component",
+        Detail: "กดหน่อยครับ",
+        Choice: choices,
+    },
+}
+service.OneChat.SendComponentSelect("หัวข้อแจ้งเตือน", oneID, botID, template)
+
+```
