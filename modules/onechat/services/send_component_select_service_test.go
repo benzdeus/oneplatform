@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/benzdeus/oneplatform/configs"
-	one_entities "github.com/benzdeus/oneplatform/entities"
 	"github.com/benzdeus/oneplatform/env"
+	one_entities "github.com/benzdeus/oneplatform/one_entities"
 )
 
 func TestOneChatService_SendComponentSelect(t *testing.T) {

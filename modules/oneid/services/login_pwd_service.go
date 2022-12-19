@@ -3,9 +3,9 @@ package services
 import (
 	"encoding/json"
 
-	one_entities "github.com/benzdeus/oneplatform/entities"
 	"github.com/benzdeus/oneplatform/env"
 	"github.com/benzdeus/oneplatform/helper"
+	one_entities "github.com/benzdeus/oneplatform/one_entities"
 )
 
 func (service *OneIDService) LoginPWD(username, password string) one_entities.ResponseOneIDLoginPWD {

@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 
-	one_entities "github.com/benzdeus/oneplatform/entities"
 	"github.com/benzdeus/oneplatform/env"
+	one_entities "github.com/benzdeus/oneplatform/one_entities"
 )
 
 func RunOneChatSendComponentHTTP(method, titile, url, oneID, botID string, templates []one_entities.OneChatRequestElementSendComponent) ([]byte, int) {

@@ -2,10 +2,10 @@ package oneplatform
 
 import (
 	"github.com/benzdeus/oneplatform/configs"
-	one_entities "github.com/benzdeus/oneplatform/entities"
 	"github.com/benzdeus/oneplatform/env"
 	_oneChatService "github.com/benzdeus/oneplatform/modules/onechat/services"
 	_oneIDService "github.com/benzdeus/oneplatform/modules/oneid/services"
+	one_entities "github.com/benzdeus/oneplatform/one_entities"
 )
 
 type service struct {

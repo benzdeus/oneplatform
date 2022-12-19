@@ -1,9 +1,9 @@
 package services
 
 import (
-	one_entities "github.com/benzdeus/oneplatform/entities"
 	"github.com/benzdeus/oneplatform/env"
 	"github.com/benzdeus/oneplatform/helper"
+	"github.com/benzdeus/oneplatform/one_entities"
 )
 
 func (service OneChatService) SendComponentSelect(title, oneID, botID string, templates []one_entities.OneChatRequestElementSendComponent) int {
