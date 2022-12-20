@@ -8,7 +8,7 @@
 
 ### ติดตั้ง
 ```bash
-go get https://github.com/benzdeus/oneplatform
+go get github.com/benzdeus/oneplatform
 ```
 
 ### Initial ตัวแปร

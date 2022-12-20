@@ -8,7 +8,7 @@ import (
 	one_entities "github.com/benzdeus/oneplatform/one_entities"
 )
 
-type service struct {
+type Service struct {
 	OneID   one_entities.OneIDService
 	OneChat one_entities.OneChatService
 }
@@ -17,11 +17,11 @@ type Options configs.Options
 type OneChatRequestElementSendComponent one_entities.OneChatRequestElementSendComponent
 type Choice one_entities.OneChatChoice
 
-func Init(options Options) service {
+func Init(options Options) Service {
 	env.Options = configs.Options(options)
 	oneIDService := _oneIDService.NewOneIDService()
 	oneChatService := _oneChatService.NewOneChatService()
-	serviceResponse := service{
+	serviceResponse := Service{
 		OneID:   oneIDService,
 		OneChat: oneChatService,
 	}
