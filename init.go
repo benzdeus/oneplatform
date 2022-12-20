@@ -17,11 +17,11 @@ type Options configs.Options
 type OneChatRequestElementSendComponent one_entities.OneChatRequestElementSendComponent
 type Choice one_entities.OneChatChoice
 
-func Init(options Options) Service {
+func Init(options Options) *Service {
 	env.Options = configs.Options(options)
 	oneIDService := _oneIDService.NewOneIDService()
 	oneChatService := _oneChatService.NewOneChatService()
-	serviceResponse := Service{
+	serviceResponse := &Service{
 		OneID:   oneIDService,
 		OneChat: oneChatService,
 	}
