@@ -2,11 +2,21 @@ package one_entities
 
 type OneIDService interface {
 	// Register()
+
+	// Method สำหรับ Login เพื่อดึง Access Token
+	//
+	// username คือ username ของ one id
+	// password คือ password ของ one id
 	LoginPWD(username, password string) ResponseOneIDLoginPWD
+
 	// LoginSharedToken()
 	// GetSharedToken()
 	// RefreshToken()
 	// LoginOauthWithSharedToken()
+
+	// Method สำหรับดึงข้อมูล user โดยใช้ access token
+	//
+	// accessToken คือ access token ที่ได้มาจาก method LoginPWD
 	GetAccountData(accessToken string) ResponseOneIDGetAccountData
 }
 

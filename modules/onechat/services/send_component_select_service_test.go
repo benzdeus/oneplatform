@@ -43,7 +43,7 @@ func TestOneChatService_SendComponentSelect(t *testing.T) {
 	}
 
 	oneChatService := NewOneChatService()
-	statusCode := oneChatService.SendComponentSelect("ทดสอบ", oneID, botID, temp)
+	statusCode := oneChatService.SendComponentSelect("ทดสอบ", []string{oneID}, botID, temp)
 
 	t.Errorf("%#v", statusCode)
 
