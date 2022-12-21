@@ -6,6 +6,7 @@ type OneIDService interface {
 	// Method สำหรับ Login เพื่อดึง Access Token
 	//
 	// username คือ username ของ one id
+	//
 	// password คือ password ของ one id
 	LoginPWD(username, password string) ResponseOneIDLoginPWD
 
