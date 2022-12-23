@@ -12,7 +12,7 @@ type OneChatService interface {
 	// templates คือ struct สามารถอ่านเพิ่มเติมได้ที่ package one_entities.OneChatRequestElementSendComponent
 	//
 	// int ที่ return คือ status code ที่บ่งบอกว่าส่งข้อความสำเร็จหรือไม่
-	SendComponentSelect(title string, oneID []string, botID string, templates []OneChatRequestElementSendComponent) int
+	SendComponentSelect(title string, oneID []string, botID string, templates []OneChatRequestElementSendComponent) (string, int)
 }
 
 // Struct ของการส่ง Template

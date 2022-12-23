@@ -10,11 +10,11 @@ import (
 
 func TestOneChatService_SendComponentSelect(t *testing.T) {
 	env.Options = configs.Options{
-		OneChatAPIKey: "",
+		OneChatAPIKey: "A0db10fcc4ac55676adef031ed6567f075907c88d76544044bfd2e9fe9d7831a976490f652f2b475bb70f6d68576c7e38",
 	}
 
-	oneID := ""
-	botID := ""
+	oneID := "3066360402"
+	botID := "B9f96ca1b641c5827a452e182da2273a4"
 
 	choice := []one_entities.OneChatChoice{
 		{
@@ -43,7 +43,9 @@ func TestOneChatService_SendComponentSelect(t *testing.T) {
 	}
 
 	oneChatService := NewOneChatService()
-	statusCode := oneChatService.SendComponentSelect("ทดสอบ", []string{oneID}, botID, temp)
+	body, statusCode := oneChatService.SendComponentSelect("ทดสอบ", []string{oneID}, botID, temp)
+
+	t.Errorf("%#v\n", body)
 
 	t.Errorf("%#v", statusCode)
 

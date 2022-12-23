@@ -11,13 +11,13 @@ import (
 	one_entities "github.com/benzdeus/oneplatform/one_entities"
 )
 
-func RunOneChatSendComponentHTTP(method, titile, url string, oneID []string, botID string, templates []one_entities.OneChatRequestElementSendComponent) ([]byte, int) {
+func RunOneChatSendComponentHTTP(method, title, url string, oneID []string, botID string, templates []one_entities.OneChatRequestElementSendComponent) ([]byte, int) {
 
 	requestBody, _ := json.Marshal(map[string]interface{}{
 		"to":                  oneID,
 		"bot_id":              botID,
 		"type":                "template",
-		"custom_notification": titile,
+		"custom_notification": title,
 		"elements":            templates,
 	})
 

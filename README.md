@@ -16,9 +16,12 @@ go get github.com/benzdeus/oneplatform
 ```go
 // สร้าง env ของ one service
 options := oneplatform.Options{
-    ClientID:      0,
+    ClientID:      "0",
     ClientSecret:  "client_secret",
     OneChatAPIKey: "one_chat_api_key",
+    ClientIDSharedToken:      "0",
+    ClientSecretSharedToken:  "client_secret",
+    ClientRefCodeSharedToken: "client_secret_refcode",
 }
 
 // service
@@ -35,6 +38,10 @@ resLogin := service.OneID.LoginPWD("username", "password")
 resPersonData := service.OneID.GetAccountData(resLogin.AccessToken)
 
 log.Printf("%+v", resPersonData.FirstNameTh)
+
+// ดึง access token จาก shared token
+resPersonData := service.OneID.GetAccessToken(`xxxx`)
+
 ```
 
 ### One Chat

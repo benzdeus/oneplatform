@@ -9,7 +9,7 @@ import (
 
 func TestOneIDService_GetAccountData(t *testing.T) {
 	env.Options = configs.Options{
-		ClientID:     0,
+		ClientID:     "0",
 		ClientSecret: "",
 	}
 

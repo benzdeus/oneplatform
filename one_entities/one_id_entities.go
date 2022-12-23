@@ -19,6 +19,8 @@ type OneIDService interface {
 	//
 	// accessToken คือ access token ที่ได้มาจาก method LoginPWD
 	GetAccountData(accessToken string) ResponseOneIDGetAccountData
+
+	GetAccessToken(sharedToken string) ReponseONEIDGetAccessToken
 }
 
 type ResponseOneIDLoginPWD struct {
@@ -38,6 +40,17 @@ type ResponseOneIDFail struct {
 	Data         interface{} `json:"data"`
 	ErrorMessage string      `json:"errorMessage"`
 	ResponseCode int         `json:"responseCode"`
+}
+
+type ReponseONEIDGetAccessToken struct {
+	TokenType      string  `json:"token_type"`
+	ExpiresIn      int     `json:"expires_in"`
+	AccessToken    string  `json:"access_token"`
+	RefreshToken   *string `json:"refresh_token"`
+	ExpirationDate string  `json:"expiration_date"`
+	AccountID      string  `json:"account_id"`
+	Result         string  `json:"result"`
+	Username       string  `json:"username"`
 }
 
 type ResponseOneIDGetAccountData struct {
