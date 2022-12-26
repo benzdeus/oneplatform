@@ -16,12 +16,16 @@ go get github.com/benzdeus/oneplatform
 ```go
 // สร้าง env ของ one service
 options := oneplatform.Options{
+    // oneid config
     ClientID:      "0",
     ClientSecret:  "client_secret",
-    OneChatAPIKey: "one_chat_api_key",
+    RefCode:       "client_secret_refcode",
     ClientIDSharedToken:      "0",
     ClientSecretSharedToken:  "client_secret",
     ClientRefCodeSharedToken: "client_secret_refcode",
+
+    // onechat config
+    OneChatAPIKey: "one_chat_api_key",
 }
 
 // service
@@ -41,6 +45,28 @@ log.Printf("%+v", resPersonData.FirstNameTh)
 
 // ดึง access token จาก shared token
 resPersonData := service.OneID.GetAccessToken(`xxxx`)
+
+```
+
+```go
+//สมัครสมาชิก
+requestRegister := one_entities.RequestOneIDRegister{
+		AccountTitleTh:  "นาย",
+		AccountTitleEng: "Mr",
+		FirstNameTh:     "สามาน",
+		FirstNameEng:    "saman",
+		LastNameTh:      "กกกกกกกก",
+		LastNameEng:     "kkkkkkkkkk",
+		IdCardType:      "ID_CARD",
+		IdCardNum:       "4881917526348",
+		Email:           "sakjdksadjsakd@gmail.com",
+		MobileNo:        "0999999999",
+		BirthDate:       "1995-10-02",
+		Username:        "bbkkjsjsjss",
+		Password:        "V22344489s",
+	}
+response := service.OneID.Register(requestRegister)
+log.Printf("%#+v", response)
 
 ```
 
