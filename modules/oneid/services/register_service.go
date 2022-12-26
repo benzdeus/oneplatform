@@ -2,7 +2,6 @@ package services
 
 import (
 	"encoding/json"
-	"log"
 
 	"github.com/benzdeus/oneplatform/env"
 	"github.com/benzdeus/oneplatform/helper"
@@ -11,11 +10,11 @@ import (
 
 func (servive OneIDService) Register(registerRequest one_entities.RequestOneIDRegister) one_entities.ResponseOneIDRegister {
 
+	response := one_entities.ResponseOneIDRegister{}
+
 	registerRequest.SetKey()
-	log.Println(registerRequest.GetKey())
 	body, statusCode := helper.RunOneIDHTTP("POST", env.BaseUrlOneID+"/citizen/register", registerRequest, "")
 
-	response := one_entities.ResponseOneIDRegister{}
 	if statusCode != 200 && statusCode != 400 {
 		response.Code = statusCode
 		return response
