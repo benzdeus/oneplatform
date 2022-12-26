@@ -3,7 +3,8 @@ package one_entities
 import "github.com/benzdeus/oneplatform/env"
 
 type OneIDService interface {
-	// Register()
+	// Method สำหรับสมัครสมาชิก
+	Register(RequestOneIDRegister) ResponseOneIDRegister
 
 	// Method สำหรับ Login เพื่อดึง Access Token
 	//
