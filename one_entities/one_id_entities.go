@@ -1,7 +1,10 @@
 package one_entities
 
+import "github.com/benzdeus/oneplatform/env"
+
 type OneIDService interface {
-	// Register()
+	// Method สำหรับสมัครสมาชิก
+	Register(RequestOneIDRegister) ResponseOneIDRegister
 
 	// Method สำหรับ Login เพื่อดึง Access Token
 	//
@@ -20,7 +23,49 @@ type OneIDService interface {
 	// accessToken คือ access token ที่ได้มาจาก method LoginPWD
 	GetAccountData(accessToken string) ResponseOneIDGetAccountData
 
-	GetAccessToken(sharedToken string) ReponseONEIDGetAccessToken
+	GetAccessToken(sharedToken string) ResponseONEIDGetAccessToken
+}
+
+type RequestOneIDRegister struct {
+	AccountTitleTh  string `json:"account_title_th"`
+	FirstNameTh     string `json:"first_name_th"`
+	LastNameTh      string `json:"last_name_th"`
+	AccountTitleEng string `json:"account_title_eng"`
+	FirstNameEng    string `json:"first_name_eng"`
+	LastNameEng     string `json:"last_name_eng"`
+	IdCardType      string `json:"id_card_type"`
+	IdCardNum       string `json:"id_card_num"`
+	Email           string `json:"email"`
+	MobileNo        string `json:"mobile_no"`
+	BirthDate       string `json:"birth_date"`
+	Username        string `json:"username"`
+	Password        string `json:"password"`
+	ClientId        string `json:"clientId"`
+	SecretKey       string `json:"secretKey"`
+	RefCode         string `json:"ref_code"`
+}
+
+func (r *RequestOneIDRegister) SetKey() {
+	(*r).ClientId = env.Options.ClientID
+	(*r).SecretKey = env.Options.ClientSecret
+	(*r).RefCode = env.Options.RefCode
+}
+
+func (r *RequestOneIDRegister) GetKey() (string, string) {
+
+	return (*r).ClientId, (*r).SecretKey
+}
+
+type ResponseOneIDRegister struct {
+	Result string `json:"result"`
+	Data   struct {
+		AccountID string `json:"accountID"`
+		Email     string `json:"email"`
+		OneChat   string `json:"one_chat"`
+		OneBox    string `json:"one_box"`
+	} `json:"data"`
+	ErrorMessage map[string][]string `json:"errorMessage"`
+	Code         int                 `json:"code"`
 }
 
 type ResponseOneIDLoginPWD struct {
@@ -42,7 +87,7 @@ type ResponseOneIDFail struct {
 	ResponseCode int         `json:"responseCode"`
 }
 
-type ReponseONEIDGetAccessToken struct {
+type ResponseONEIDGetAccessToken struct {
 	TokenType      string  `json:"token_type"`
 	ExpiresIn      int     `json:"expires_in"`
 	AccessToken    string  `json:"access_token"`

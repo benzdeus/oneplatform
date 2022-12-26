@@ -14,8 +14,6 @@ type Service struct {
 }
 
 type Options configs.Options
-type OneChatRequestElementSendComponent one_entities.OneChatRequestElementSendComponent
-type Choice one_entities.OneChatChoice
 
 func Init(options Options) *Service {
 	env.Options = configs.Options(options)
