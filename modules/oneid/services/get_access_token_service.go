@@ -14,9 +14,9 @@ type sharedToken struct {
 	AccessToken string `json:"access_token"`
 }
 
-func (service OneIDService) GetAccessToken(st string) one_entities.ReponseONEIDGetAccessToken {
+func (service OneIDService) GetAccessToken(st string) one_entities.ResponseONEIDGetAccessToken {
 	dataSharedToken := new(sharedToken)
-	response := one_entities.ReponseONEIDGetAccessToken{}
+	response := one_entities.ResponseONEIDGetAccessToken{}
 
 	_, errParseToken := jwt.ParseWithClaims(st, dataSharedToken, nil)
 
