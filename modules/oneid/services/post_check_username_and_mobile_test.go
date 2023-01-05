@@ -18,7 +18,6 @@ func TestPostCheckUsernameAndMobile(t *testing.T) {
 	service := services.NewOneIDService()
 	t.Run("ShouldBeSuccess", func(t *testing.T) {
 		response := service.PostCheckUsernameAndMobile("ogstest555", "0999999999")
-
 		if response.Data == false {
 			t.Error(response.Result)
 		}

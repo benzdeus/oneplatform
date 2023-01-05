@@ -11,27 +11,27 @@ import (
 
 func TestPostDeleteEmail(t *testing.T) {
 
+	env.Options = configs.Options{
+		ClientID:     os.Getenv("CLIENT_ID"),
+		ClientSecret: os.Getenv("CLIENT_SECRET"),
+	}
+
+	service := services.NewOneIDService()
+	data := service.LoginPWD(os.Getenv("USERNAME"), os.Getenv("PASSWORD"))
+
 	t.Run("ShouldBeSuccess", func(t *testing.T) {
 
-		env.Options = configs.Options{
-			ClientID:     os.Getenv("CLIENT_ID"),
-			ClientSecret: os.Getenv("CLIENT_SECRET"),
-		}
-
-		service := services.NewOneIDService()
-		data := service.LoginPWD("", "")
-
-		response := service.PostDeleteEmail("@gmail.com", data.AccessToken)
+		response := service.PostDeleteEmail("yeanecom@gmail.com", data.AccessToken)
 
 		if response.Result != "Success" {
+			t.Errorf("%#+v", response)
+		}
+	})
+	t.Run("ShouldBeFail", func(t *testing.T) {
+		response := service.PostDeleteEmail("yeanecom@gmail.com", data.AccessToken)
+
+		if response.Data == "Success" {
 			t.Error(response.Result)
 		}
 	})
-	// t.Run("ShouldBeFail", func(t *testing.T) {
-	// 	response := service.PostDeleteEmail("@gmail.com", data.AccessToken)
-
-	// 	if response.Data == "Success" {
-	// 		t.Error(response.Result)
-	// 	}
-	// })
 }

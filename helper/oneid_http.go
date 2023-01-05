@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 )
 
 func RunOneIDHTTP(method string, url string, requestBodyJSON interface{}, acessToken string) ([]byte, int) {
@@ -21,9 +20,6 @@ func RunOneIDHTTP(method string, url string, requestBodyJSON interface{}, acessT
 
 	if acessToken != "" {
 		request.Header.Set("Authorization", "Bearer "+acessToken)
-		request.Header.Set("client_id", os.Getenv("CLIENT_ID"))
-		request.Header.Set("secretKey", os.Getenv("CLIENT_SECRET"))
-		request.Header.Set("ref_code", "")
 	}
 
 	client := &http.Client{}
