@@ -24,6 +24,10 @@ type OneIDService interface {
 	GetAccountData(accessToken string) ResponseOneIDGetAccountData
 
 	GetAccessToken(sharedToken string) ResponseONEIDGetAccessToken
+
+	PostCheckUsernameAndMobile(username, mobile_no string) ResponseOneIDCheckUsernameAndMobile
+
+	PostDeleteEmail(email, accessToken string) ResponseOneIDDeleteEmail
 }
 
 type RequestOneIDRegister struct {
@@ -236,5 +240,13 @@ type ResponseOneIDGetAccountData struct {
 	AccountAttribute []interface{} `json:"account_attribute"`
 	Status           string        `json:"status"`
 	LastUpdate       string        `json:"last_update"`
+	ResponseOneIDFail
+}
+
+type ResponseOneIDCheckUsernameAndMobile struct {
+	ResponseOneIDFail
+}
+
+type ResponseOneIDDeleteEmail struct {
 	ResponseOneIDFail
 }
