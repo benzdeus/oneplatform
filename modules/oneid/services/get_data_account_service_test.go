@@ -13,10 +13,10 @@ func TestOneIDService_GetAccountData(t *testing.T) {
 		ClientSecret: "",
 	}
 
-	token := ``
-
 	oneidService := NewOneIDService()
-	res := oneidService.GetAccountData(token)
+
+	data := oneidService.LoginPWD("", "")
+	res := oneidService.GetAccountData(data.AccessToken)
 
 	t.Errorf("%#v", res)
 

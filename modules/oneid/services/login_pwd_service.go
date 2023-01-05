@@ -11,14 +11,14 @@ import (
 func (service *OneIDService) LoginPWD(username, password string) one_entities.ResponseOneIDLoginPWD {
 
 	response := one_entities.ResponseOneIDLoginPWD{}
-	rquestBody := map[string]interface{}{
+	requestBody := map[string]interface{}{
 		"username":      username,
 		"password":      password,
 		"grant_type":    "password",
 		"client_id":     env.Options.ClientID,
 		"client_secret": env.Options.ClientSecret,
 	}
-	body, statusCode := helper.RunOneIDHTTP("POST", env.BaseUrlOneID+"/oauth/getpwd", rquestBody, "")
+	body, statusCode := helper.RunOneIDHTTP("POST", env.BaseUrlOneID+"/oauth/getpwd", requestBody, "")
 
 	if statusCode == 200 {
 		response.ResponseCode = 200
