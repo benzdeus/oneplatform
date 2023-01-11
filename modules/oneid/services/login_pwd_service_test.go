@@ -8,10 +8,10 @@ import (
 	"github.com/benzdeus/oneplatform/modules/oneid/services"
 )
 
-func TestLoginPWDServiceSuccess(t *testing.T) {
+func TestLoginPWDService(t *testing.T) {
 	env.Options = configs.Options{
-		ClientID:     0,
-		ClientSecret: "xxx",
+		ClientID:     "",
+		ClientSecret: "",
 	}
 
 	var request struct {
@@ -19,8 +19,8 @@ func TestLoginPWDServiceSuccess(t *testing.T) {
 		Password string
 	}
 
-	request.UserName = "xxx"
-	request.Password = "xxx"
+	request.UserName = ""
+	request.Password = ""
 
 	t.Run("Login Should be success", func(t *testing.T) {
 

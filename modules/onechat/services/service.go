@@ -5,12 +5,12 @@ import (
 	"github.com/benzdeus/oneplatform/env"
 )
 
-type OneIDService struct {
+type OneChatService struct {
 	options configs.Options
 }
 
-func NewOneIDService() *OneIDService {
-	return &OneIDService{
+func NewOneChatService() *OneChatService {
+	return &OneChatService{
 		options: env.Options,
 	}
 }

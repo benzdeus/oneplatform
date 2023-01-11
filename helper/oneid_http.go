@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func SetRequestOneID(method string, url string, requestBodyJSON interface{}, acessToken string) ([]byte, int) {
+func RunOneIDHTTP(method string, url string, requestBodyJSON interface{}, acessToken string) ([]byte, int) {
 	var requestBody []byte
 	requestBody, _ = json.Marshal(requestBodyJSON)
 
