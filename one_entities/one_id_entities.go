@@ -28,6 +28,16 @@ type OneIDService interface {
 	PostCheckUsernameAndMobile(username, mobile_no string) ResponseOneIDCheckUsernameAndMobile
 
 	PostDeleteEmail(email, accessToken string) ResponseOneIDDeleteEmail
+
+	GetCheckEmail(email string) ResponseOneIDCheckEmail
+
+	PostCheckOneMail(onemail string) ResponseOneIDCheckOneMail
+
+	PostCheckUsernameAndIdCard(username, id_card string) ResponseOneIdCheckUsernameAndIdCard
+
+	GetCheckId(idCard string) ResponseOneIdCheckId
+
+	GetAccountDetialByIdNo(id_no, access_token string) ResponseOneIdAccountDetailByIdNo
 }
 
 type RequestOneIDRegister struct {
@@ -248,5 +258,61 @@ type ResponseOneIDCheckUsernameAndMobile struct {
 }
 
 type ResponseOneIDDeleteEmail struct {
+	ResponseOneIDFail
+}
+
+type ResponseOneIDCheckEmail struct {
+	ResponseOneIDFail
+}
+
+type ResponseOneIDCheckOneMail struct {
+	ResponseOneIDFail
+}
+
+type ResponseOneIdCheckUsernameAndIdCard struct {
+	ResponseOneIDFail
+}
+
+type ResponseOneIdCheckId struct {
+	Data         interface{} `json:"data"`
+	ErrorMessage string      `json:"errorMessage"`
+	Message      string      `json:"message"`
+	ResponseCode int         `json:"responseCode"`
+}
+
+type ResponseOneIdAccountDetailByIdNo struct {
+	Result string `json:"result"`
+	Data   []struct {
+		Id              string        `json:"id"`
+		FirstNameTh     string        `json:"first_name_th"`
+		LastNameTh      string        `json:"last_name_th"`
+		FirstNameEng    string        `json:"first_name_eng"`
+		LastNameEng     string        `json:"last_name_eng"`
+		AccountTitleTh  string        `json:"account_title_th"`
+		AccountTitleEng string        `json:"account_title_eng"`
+		AccountCategory string        `json:"account_category"`
+		IdCardType      string        `json:"id_card_type"`
+		IdCardNum       string        `json:"id_card_num"`
+		StatusCd        string        `json:"status_cd"`
+		Address         []interface{} `json:"address"`
+	}
+	ErrorMessage interface{} `json:"errorMessage"`
+	Code         int         `json:"code"`
+	ResponseCode int         `json:"responseCode"`
+}
+
+type ResponseOneIdCheckLoaLevel1To3 struct {
+	Result string `json:"result"`
+	Data   struct {
+		LoaLevel string `json:"loa_level"`
+		Loa1     string `json:"loa1"`
+		Loa2     string `json:"loa2"`
+		Loa3     string `json:"loa3"`
+	} `json:"data"`
+	ErrorMessage interface{} `json:"errorMessage"`
+	Code         int         `json:"code"`
+}
+
+type ResponseOneIdAddAddress struct {
 	ResponseOneIDFail
 }
