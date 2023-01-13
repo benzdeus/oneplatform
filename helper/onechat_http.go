@@ -36,6 +36,7 @@ func RunOneChatSendComponentHTTP(method, title, url string, oneID []string, botI
 	response, errResponse := client.Do(request)
 	if errResponse != nil {
 		log.Println(errResponse)
+		return []byte("can't connect one chat server"), 500
 	}
 	defer response.Body.Close()
 

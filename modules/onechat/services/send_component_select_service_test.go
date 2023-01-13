@@ -1,20 +1,22 @@
-package services
+package services_test
 
 import (
+	"os"
 	"testing"
 
 	"github.com/benzdeus/oneplatform/configs"
 	"github.com/benzdeus/oneplatform/env"
+	"github.com/benzdeus/oneplatform/modules/onechat/services"
 	one_entities "github.com/benzdeus/oneplatform/one_entities"
 )
 
 func TestOneChatService_SendComponentSelect(t *testing.T) {
 	env.Options = configs.Options{
-		OneChatAPIKey: "",
+		OneChatAPIKey: os.Getenv("ONE_CHAT_KEY"),
 	}
 
 	oneID := ""
-	botID := ""
+	botID := os.Getenv("BOT_ID")
 
 	choice := []one_entities.OneChatChoice{
 		{
@@ -42,7 +44,7 @@ func TestOneChatService_SendComponentSelect(t *testing.T) {
 		},
 	}
 
-	oneChatService := NewOneChatService()
+	oneChatService := services.NewOneChatService()
 	body, statusCode := oneChatService.SendComponentSelect("ทดสอบ", []string{oneID}, botID, temp)
 
 	t.Errorf("%#v\n", body)

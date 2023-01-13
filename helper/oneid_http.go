@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"io/ioutil"
+
 	"log"
 	"net/http"
 )
@@ -27,6 +28,7 @@ func RunOneIDHTTP(method string, url string, requestBodyJSON interface{}, acessT
 	response, errResponse := client.Do(request)
 	if errResponse != nil {
 		log.Println(errResponse)
+		return []byte("can't connect one id server"), 500
 	}
 	defer response.Body.Close()
 
